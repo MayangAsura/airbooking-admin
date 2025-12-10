@@ -32,7 +32,15 @@
 
       .right {
         flex: 2;
-        padding: 0px 20px;
+        padding: 0 20px;
+
+        .selectRoom {
+          width: 100%;
+        }
+
+        .formInput {
+          width: 40%;
+        }
 
         form {
           display: flex;

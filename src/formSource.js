@@ -1,15 +1,9 @@
 export const userInputs = [
     {
-      id: 1,
+      id: 'username',
       label: "Username",
       type: "text",
       placeholder: "john_doe",
-    },
-    {
-      id: 2,
-      label: "Name and surname",
-      type: "text",
-      placeholder: "John Doe",
     },
     {
       id: 3,
@@ -18,27 +12,73 @@ export const userInputs = [
       placeholder: "john_doe@gmail.com",
     },
     {
-      id: 4,
+      id: 'phone',
       label: "Phone",
       type: "text",
       placeholder: "+1 234 567 89",
     },
     {
-      id: 5,
+      id: 'password',
       label: "Password",
       type: "password",
     },
     {
-      id: 6,
-      label: "Address",
-      type: "text",
-      placeholder: "Elton St. 216 NewYork",
-    },
-    {
-      id: 7,
+      id: 'country',
       label: "Country",
       type: "text",
       placeholder: "USA",
+    },
+    {
+      id: 'city',
+      label: "City",
+      type: "text",
+      placeholder: "USA",
+    },
+  ];
+export const hotelInputs = [
+    {
+      id: 'name',
+      label: "Name",
+      type: "text",
+      placeholder: "+1 234 567 89",
+    },
+    {
+      id: 'title',
+      label: "Title",
+      type: "text",
+      placeholder: "john_doe",
+    },
+    {
+      id: 'city',
+      label: "City",
+      type: "text",
+      placeholder: "USA",
+    },
+  ];
+export const roomInputs = [
+    {
+      id: 'title',
+      label: "Title",
+      type: "text",
+      placeholder: "john_doe",
+    },
+    {
+      id: 'desc',
+      label: "Description",
+      type: "text",
+      placeholder: "",
+    },
+    {
+      id: 'price',
+      label: "Price",
+      type: "text",
+      placeholder: "+1 234 567 89",
+    },
+    {
+      id: 'max_people',
+      label: "Phone",
+      type: "text",
+      placeholder: "+1 234 567 89",
     },
   ];
   

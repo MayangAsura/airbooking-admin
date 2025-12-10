@@ -7,7 +7,7 @@ export const userColumns = [
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img} alt="avatar" />
+          <img className="cellImg" src={params.row.img || "http://i.bb.co/MBtjqXQ/no-avatar.gif"} alt="avatar" />
           {params.row.username}
         </div>
       );
@@ -18,24 +18,33 @@ export const userColumns = [
     headerName: "Email",
     width: 230,
   },
-
   {
-    field: "age",
-    headerName: "Age",
+    field: "country",
+    headerName: "Country",
     width: 100,
   },
   {
-    field: "status",
-    headerName: "Status",
-    width: 160,
-    renderCell: (params) => {
-      return (
-        <div className={`cellWithStatus ${params.row.status}`}>
-          {params.row.status}
-        </div>
-      );
-    },
+    field: "city",
+    headerName: "City",
+    width: 100,
   },
+  {
+    field: "phone",
+    headerName: "Phonr",
+    width: 100,
+  },
+  // {
+  //   field: "status",
+  //   headerName: "Status",
+  //   width: 160,
+  //   renderCell: (params) => {
+  //     return (
+  //       <div className={`cellWithStatus ${params.row.status}`}>
+  //         {params.row.status}
+  //       </div>
+  //     );
+  //   },
+  // },
 ];
 
 //temporary data
@@ -120,4 +129,84 @@ export const userRows = [
     status: "active",
     age: 65,
   },
+];
+
+export const hotelColumns = [
+  { field: "_id", headerName: "ID", width: 200 },
+  {
+    field: "name",
+    headerName: "Name",
+    width: 230,
+  },
+  {
+    field: "title",
+    headerName: "Type",
+    width: 100,
+  },
+  {
+    field: "city",
+    headerName: "City",
+    width: 100,
+  }
+  // {
+  //   field: "status",
+  //   headerName: "Status",
+  //   width: 160,
+  //   renderCell: (params) => {
+  //     return (
+  //       <div className={`cellWithStatus ${params.row.status}`}>
+  //         {params.row.status}
+  //       </div>
+  //     );
+  //   },
+  // },
+];
+export const roomColumns = [
+  { field: "_id", headerName: "ID", width: 200 },
+  // {
+  //   field: "",
+  //   headerName: "rooms",
+  //   width: 230,
+  //   renderCell: (params) => {
+  //     return (
+  //       <div className="cellWithImg">
+  //         <img className="cellImg" src={params.row.img} alt="avatar" />
+  //         {params.row.username}
+  //       </div>
+  //     );
+  //   },
+  // },
+  {
+    field: "title",
+    headerName: "Title",
+    width: 230,
+  },
+
+  {
+    field: "desc",
+    headerName: "Description",
+    width: 100,
+  },
+  {
+    field: "price",
+    headerName: "Price",
+    width: 100,
+  },
+  {
+    field: "max_people",
+    headerName: "Max People",
+    width: 100,
+  },
+  // {
+  //   field: "status",
+  //   headerName: "Status",
+  //   width: 160,
+  //   renderCell: (params) => {
+  //     return (
+  //       <div className={`cellWithStatus ${params.row.status}`}>
+  //         {params.row.status}
+  //       </div>
+  //     );
+  //   },
+  // },
 ];
