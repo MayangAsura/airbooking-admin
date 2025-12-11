@@ -11,7 +11,7 @@ const Datatable = ({columns}) => {
   const location = useLocation()
   const path = location.pathname.split("/")[1]
   const [list, setList] = useState(userRows);
-  const {data, loading, error} = useFetch(`${path}`)
+  const {data, loading, error} = useFetch(`/${path}`)
 
   useEffect(() => {
     console.log('path', path)
