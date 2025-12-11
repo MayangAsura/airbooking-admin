@@ -4,10 +4,12 @@ import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import axios from 'axios'
+import {useNavigate} from 'react-router-dom'
 
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
   const [info, setInfo] = useState({})
+  const navigate = useNavigate()
   const handleChange = (e) => {
     setInfo((prev) => ({...prev, [e.target.id] : e.target.value}))
   }
@@ -25,9 +27,13 @@ const New = ({ inputs, title }) => {
           img: url
         }
 
-        console.log(newUser)
+        console.log('newUser', newUser)
 
-        await axios.post("/auth/register", newUser)
+        const res = await axios.post("/auth/register", newUser)
+
+        if(res.status===200){
+          navigate('/users')
+        }
 
         
         
@@ -45,7 +51,7 @@ const New = ({ inputs, title }) => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>{title}</h1>
+          <h1>Add New User</h1>
         </div>
         <div className="bottom">
           <div className="left">
@@ -76,7 +82,7 @@ const New = ({ inputs, title }) => {
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
-                  <input onChange={handleChange} type={input.type} placeholder={input.placeholder} />
+                  <input id={input.id} onChange={handleChange} type={input.type} placeholder={input.placeholder} />
                 </div>
               ))}
               <button onClick={handleClick} >Send</button>

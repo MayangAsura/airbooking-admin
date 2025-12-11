@@ -4,7 +4,7 @@ import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { productInputs, userInputs } from "./formSource";
+import { hotelInputs, productInputs, roomInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
@@ -37,18 +37,18 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="users">
               <Route index element={<ProtectedRoute><List columns={userColumns} /></ProtectedRoute>} />
-              <Route path=":userId" element={<ProtectedRoute><Single /></ProtectedRoute>} />
+              <Route path=":id" element={<ProtectedRoute><Single /></ProtectedRoute>} />
               <Route
                 path="new"
-                element={<ProtectedRoute><New /></ProtectedRoute>}
+                element={<ProtectedRoute><New inputs={userInputs} /></ProtectedRoute>}
               />
             </Route>
             <Route path="hotels">
               <Route index element={<ProtectedRoute><List columns={hotelColumns} /></ProtectedRoute>} />
-              <Route path=":productId" element={<ProtectedRoute><Single /></ProtectedRoute>} />
+              <Route path=":id" element={<ProtectedRoute><Single /></ProtectedRoute>} />
               <Route
                 path="new"
-                element={<ProtectedRoute><NewHotel /></ProtectedRoute>}
+                element={<ProtectedRoute><NewHotel inputs={hotelInputs} /></ProtectedRoute>}
               />
             </Route>
             <Route path="rooms">
@@ -56,7 +56,7 @@ function App() {
               <Route path=":productId" element={<ProtectedRoute><Single /></ProtectedRoute>} />
               <Route
                 path="new"
-                element={<ProtectedRoute><NewRoom /></ProtectedRoute>}
+                element={<ProtectedRoute><NewRoom inputs={roomInputs} /></ProtectedRoute>}
               />
             </Route>
           </Route>

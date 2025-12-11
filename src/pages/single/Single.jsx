@@ -3,8 +3,13 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Chart from "../../components/chart/Chart";
 import List from "../../components/table/Table";
+import {useLocation} from 'react-router-dom'
+import { useFetch } from "../../hooks/useFetch";
 
 const Single = () => {
+  const location = useLocation()
+  const id = location.pathname.split('/')[2]
+  const {data, loading, error} = useFetch(`/users/${id}`)
   return (
     <div className="single">
       <Sidebar />

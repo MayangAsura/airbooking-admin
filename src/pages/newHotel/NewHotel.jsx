@@ -3,6 +3,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
+import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import { useFetch } from "../../hooks/useFetch";
 
@@ -10,6 +11,7 @@ const NewHotel = ({ inputs, title }) => {
   const [files, setFiles] = useState("");
   const [info, setInfo] = useState({})
   const [rooms, setRooms] = useState([])
+  const navigate = useNavigate()
   
   const {data, loading, error} = useFetch("/rooms")
 
@@ -43,7 +45,11 @@ const NewHotel = ({ inputs, title }) => {
       photos: list
     }
 
-    await axios.post('/hotels/create', newHotel)
+    const res = await axios.post('/hotels/create', newHotel)
+    
+    if(res.status === 200){
+      navigate('/hotels')
+    }
   }
 
 

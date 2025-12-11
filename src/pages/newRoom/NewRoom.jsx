@@ -3,6 +3,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState, useEffect } from "react";
+import {useNavigate} from 'react-router-dom'
 import { roomInputs } from "../../formSource";
 import { useFetch } from "../../hooks/useFetch";
 import axios from 'axios'
@@ -12,6 +13,7 @@ const NewRoom = () => {
   const [hotelId, setHotelId] = useState(undefined)
   const [rooms, setRooms] = useState([])
   const [info, setInfo] = useState(null)
+  const navigate = useNavigate()
 
   const {data, loading, error} = useFetch("/hotels")
 
@@ -27,7 +29,10 @@ const NewRoom = () => {
     e.preventDefault()
     const roomNumbers = rooms.split(",").map(room => ({number: room}))
     try {
-      await axios.post(`/hotels/${hotelId}/rooms`, {...info, roomNumbers})
+      const res = await axios.post(`/rooms/hotels/${hotelId}`, {...info, roomNumbers})
+      if(res.status === 200){
+        navigate('/rooms')
+      }
 
 
     } catch (error) {
@@ -76,11 +81,11 @@ const NewRoom = () => {
                   onChange={handleChange} />
                 </div>
               ))}
-              <div className="formInput">
+                <div className="formInput">
                   <label>Rooms</label>
                   <textarea onChange={e => setRooms(e.target.value)} placeholder="give comma between room numbers"/>
                 </div>
-              <div className="formInput">
+                <div className="formInput">
                   <label>Choose a Hotel</label>
                   <select id="hotelId" onChange={e => setHotelId(e.target.value)}>
                     {loading ? "Loading": data && data.map(hotel => (
@@ -90,7 +95,7 @@ const NewRoom = () => {
                   </select>
                 </div>
 
-              <button onClick={handleClick} >Send</button>
+                <button onClick={handleClick} >Send</button>
             </form>
           </div>
         </div>

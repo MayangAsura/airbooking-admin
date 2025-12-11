@@ -6,10 +6,10 @@ export const userInputs = [
       placeholder: "john_doe",
     },
     {
-      id: 3,
+      id: 'email',
       label: "Email",
-      type: "mail",
-      placeholder: "john_doe@gmail.com",
+      type: "email",
+      placeholder: "jhon@mail.com",
     },
     {
       id: 'phone',
@@ -26,13 +26,13 @@ export const userInputs = [
       id: 'country',
       label: "Country",
       type: "text",
-      placeholder: "USA",
+      placeholder: "Indonesia",
     },
     {
       id: 'city',
       label: "City",
       type: "text",
-      placeholder: "USA",
+      placeholder: "Palembang",
     },
   ];
 export const hotelInputs = [
@@ -40,19 +40,19 @@ export const hotelInputs = [
       id: 'name',
       label: "Name",
       type: "text",
-      placeholder: "+1 234 567 89",
+      placeholder: "Riyadh Hotel",
     },
     {
       id: 'title',
       label: "Title",
       type: "text",
-      placeholder: "john_doe",
+      placeholder: "",
     },
     {
       id: 'city',
       label: "City",
       type: "text",
-      placeholder: "USA",
+      placeholder: "Riyadh",
     },
   ];
 export const roomInputs = [
@@ -60,7 +60,7 @@ export const roomInputs = [
       id: 'title',
       label: "Title",
       type: "text",
-      placeholder: "john_doe",
+      placeholder: "Y01",
     },
     {
       id: 'desc',
@@ -72,13 +72,13 @@ export const roomInputs = [
       id: 'price',
       label: "Price",
       type: "text",
-      placeholder: "+1 234 567 89",
+      placeholder: "7000000",
     },
     {
-      id: 'max_people',
-      label: "Phone",
+      id: 'maxPeople',
+      label: "Max People",
       type: "text",
-      placeholder: "+1 234 567 89",
+      placeholder: "",
     },
   ];
   

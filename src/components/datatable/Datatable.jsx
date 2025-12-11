@@ -14,7 +14,7 @@ const Datatable = ({columns}) => {
   const {data, loading, error} = useFetch(`${path}`)
 
   useEffect(() => {
-    // console.log(data)
+    console.log('path', path)
     setList(data.data)
   }, [data])
 
@@ -35,7 +35,7 @@ const Datatable = ({columns}) => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
+            <Link to="/users/:id" style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
             </Link>
             <div
@@ -53,7 +53,7 @@ const Datatable = ({columns}) => {
     <div className="datatable">
       <div className="datatableTitle">
         {path}
-        <Link to={`${path}/new`} className="link">
+        <Link to={`/${path}/new`} className="link">
           Add New
         </Link>
       </div>
