@@ -6,7 +6,7 @@ import axios from "axios";
 import { PROD_URL } from "../../api/production";
 import { LOCAL_URL } from "../../api/local";
 
-const BASE_URL = process.env.SERVER_MODE === 'production'? PROD_URL : LOCAL_URL
+const BASE_URL = process.env.REACT_APP_SERVER_MODE === 'production'? PROD_URL : LOCAL_URL
 
 const Login = () => {
   const [credentials, setCredentials] = useState({

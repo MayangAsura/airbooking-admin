@@ -1,1 +1,1 @@
-export const PROD_URL = process.env.PROD_URL || "https://localhost:8080"
+export const PROD_URL = process.env.REACT_APP_PROD_URL || "https://localhost:8080"
