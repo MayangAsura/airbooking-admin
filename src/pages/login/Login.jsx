@@ -3,6 +3,10 @@ import { useState, useContext } from "react";
 import { useNavigate} from 'react-router-dom'
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
+import { PROD_URL } from "../../api/production";
+import { LOCAL_URL } from "../../api/local";
+
+const BASE_URL = process.env.SERVER_MODE === 'production'? PROD_URL : LOCAL_URL
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -25,7 +29,8 @@ const Login = () => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("/auth/login", credentials);
+      const res = await axios.post( `${BASE_URL}/auth/login`, credentials);
+      // const res = await axios.post("/auth/login", credentials);
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
       navigate('/')
     } catch (error) {
