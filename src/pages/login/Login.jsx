@@ -34,7 +34,7 @@ const Login = () => {
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
       navigate('/')
     } catch (error) {
-      dispatch({ type: "LOGIN_FAILURE", payload: error.response.data });
+      dispatch({ type: "LOGIN_FAILURE", payload: error });
     }
   };
 
