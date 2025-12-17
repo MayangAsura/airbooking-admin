@@ -3,6 +3,8 @@ import { useState, useContext } from "react";
 import { useNavigate} from 'react-router-dom'
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
+import { PROD_URL } from "../../api/production"
+import { LOCAL_URL } from "../../api/production"
 
 const BASE_URL = process.env.REACT_APP_SERVER_MODE === 'production'? PROD_URL : LOCAL_URL
 
